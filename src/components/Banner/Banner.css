@@ -1,0 +1,19 @@
+.banner-wrapper {
+  display: flex;
+  width: 100%;
+  margin: auto;
+}
+
+.banner-left {
+  width: 50%;
+  background-color: antiquewhite;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+
+.banner-right {
+  width: 50%;
+
+}

@@ -1,0 +1,25 @@
+.NavbarItems {
+  /* background: #d3ffce; */
+  max-width: 1280px;
+  margin: auto;
+  height: 80px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.2rem;
+}
+
+ul {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+}
+
+li {
+  list-style: none;
+}
+
+.nav-links {
+  color: #333;
+  font-weight: 600;
+}
