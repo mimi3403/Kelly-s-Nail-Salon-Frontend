@@ -2,6 +2,7 @@ import './App.css';
 import { BrowserRouter as Router } from 'react-router-dom';
 import NavBar from './components/NavBar/NavBar'
 import Banner from './components/Banner/Banner';
+import Services from './components/Services/Services';
 
 function App() {
   return (
@@ -12,6 +13,7 @@ function App() {
         </header>
         <NavBar />
         <Banner />
+        <Services />
       </div>
     </Router>
   );
