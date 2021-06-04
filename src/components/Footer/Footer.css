@@ -1,0 +1,21 @@
+@import url('https://fonts.googleapis.com/css2?family=Caveat&family=ZCOOL+KuaiLe&display=swap');
+
+.icon-content-wrapper {
+  display: flex;
+  justify-content: center;
+}
+
+.icon-content {
+  padding: 10px;
+  margin: 10px;
+  width: 35px;
+  height: 35px;
+  background-color: antiquewhite;
+  border-radius: 50%;
+}
+
+.footer-wrapper p {
+  font-size: 24px;
+  font-weight: 600;
+  font-family: 'Caveat', cursive;
+}

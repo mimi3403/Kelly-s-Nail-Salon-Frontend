@@ -1,0 +1,19 @@
+.intro-content-container {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  margin: 40px auto;
+  /* justify-content: center; */
+  justify-content: space-between;
+}
+
+.intro-content {
+  width: 350px;
+  /* padding: 20px; */
+}
+
+.intro-content img {
+  width: 350px;
+  height: 350px;
+  padding: 10px;
+}
