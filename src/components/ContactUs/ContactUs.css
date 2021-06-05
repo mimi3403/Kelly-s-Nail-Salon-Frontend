@@ -1,0 +1,25 @@
+.contact-wrapper {
+  background-image: url('https://t4.ftcdn.net/jpg/03/38/18/47/240_F_338184799_qDtjVptNgJZMDLQpvpRrmzNOCdWfqhzX.jpg');
+  min-height: 100vh;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+
+}
+
+.contact-number a {
+  padding: 10px;
+  color: #333;
+  background-color: antiquewhite;
+  border-radius: 10px;
+  cursor: pointer;
+  transition-duration: .5s;
+}
+
+a {
+  text-decoration: none;
+}
+
+.contact-section-wrapper-location {
+  margin-top: 20px;
+}

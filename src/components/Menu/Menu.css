@@ -1,0 +1,36 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+div {
+  display: block;
+}
+
+.list-title h2 {
+  color: #FFC3A0;
+  font-weight: 600;
+}
+
+.list-content h5,
+span {
+  font-weight: 600;
+}
+
+.list-wrapper {
+  max-width: 1024px;
+  margin: auto;
+}
+
+.list-wrapper .list-title {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.list-wrapper .list-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
