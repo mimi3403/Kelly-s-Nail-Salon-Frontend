@@ -1,7 +1,7 @@
 import NavBar from '../../components/NavBar/NavBar';
 import Footer from '../../components/Footer/Footer';
 
-const ServicesPage = () => {
+const ContactUsPage = () => {
   return (
     <div className="App">
       <NavBar />
@@ -10,4 +10,4 @@ const ServicesPage = () => {
   )
 }
 
-export default ServicesPage;
+export default ContactUsPage;

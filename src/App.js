@@ -2,6 +2,8 @@ import './App.css';
 import { BrowserRouter as Router } from 'react-router-dom';
 import { Route, Switch } from 'react-router-dom';
 import HomePage from './pages/HomePage/HomePage';
+import ServicesPage from './pages/ServicesPage/ServicesPage';
+import ContactUsPage from './pages/ContactUsPage/ContactUsPage';
 
 function App() {
   return (
@@ -16,6 +18,18 @@ function App() {
             render={() => (
               <HomePage />
             )} />
+          <Route
+            path='/services'
+            render={() => (
+              <ServicesPage />
+            )}
+          />
+          <Route
+            page='/contactus'
+            render={() => (
+              <ContactUsPage />
+            )}
+          />
         </Switch>
       </div>
     </Router>

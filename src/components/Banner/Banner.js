@@ -10,7 +10,7 @@ const Banner = () => {
 
           <h2>Celebrate Clean Brighter Days</h2>
           <h3>New Limited Edition Colors</h3>
-          <Link to='/appointment'>
+          <Link to='/contactus'>
             <button>Make an Appointment</button>
           </Link>
         </div>
