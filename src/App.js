@@ -25,7 +25,7 @@ function App() {
             )}
           />
           <Route
-            page='/contactus'
+            path='/contactus'
             render={() => (
               <ContactUsPage />
             )}
