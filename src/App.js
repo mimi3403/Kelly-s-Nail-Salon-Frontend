@@ -1,10 +1,13 @@
 import './App.css';
 import { useState, useEffect } from "react";
 import { BrowserRouter as Router } from 'react-router-dom';
-import { Route, Switch } from 'react-router-dom';
-import HomePage from './pages/HomePage/HomePage';
-import ServicesPage from './pages/ServicesPage/ServicesPage';
-import ContactUsPage from './pages/ContactUsPage/ContactUsPage';
+import { Route } from 'react-router-dom';
+import { Routes } from './constants/routes.js';
+// import HomePage from './pages/HomePage/HomePage';
+// import ServicesPage from './pages/ServicesPage/ServicesPage';
+// import ContactUsPage from './pages/ContactUsPage/ContactUsPage';
+import NavBar from './components/NavBar/NavBar';
+import Footer from './components/Footer/Footer';
 import {
   fetchAppointment,
   createAppointment,
@@ -37,32 +40,26 @@ function App() {
 
   return (
     <Router>
-      <div className="App">
-        <header className="App-header">
-          Kelly's Nail Salon
-        </header>
-        <Switch>
-          <Route
-            exact path='/'
-            render={() => (
-              <HomePage />
-            )} />
-          <Route
-            path='/services'
-            render={() => (
-              <ServicesPage />
-            )}
-          />
-          <Route
-            path='/contactus'
-            render={() => (
-              <ContactUsPage />
-            )}
-          />
-        </Switch>
+      <div className='App'>
+        <header className='App-header'>Kelly's Nail Salon</header>
+        <NavBar />
+        <div>
+          {Routes.map((v) => (
+            <Route
+              key={v.path}
+              exact={v.isExact}
+              path={v.path}
+              render={() => {
+                return v.component;
+              }}
+            />
+          ))}
+        </div>
+        <Footer />
       </div>
     </Router>
   );
 }
+
 
 export default App;
