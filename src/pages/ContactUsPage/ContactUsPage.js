@@ -5,7 +5,7 @@ import {
   createAppointment,
   fetchAppointment,
   updateAppointment,
-  // deleteAppointment,
+  deleteAppointment,
 } from '../../services/appointment-service'
 
 const ContactUsPage = () => {
@@ -37,7 +37,8 @@ const ContactUsPage = () => {
     if (apptState.editMode) {
       try {
         const appointments = await updateAppointment(apptState.newAppointment);
-        setApptState({
+        setApptState(prevState => ({
+          ...prevState,
           appointments,
           editMode: false,
           newAppointment: {
@@ -46,14 +47,13 @@ const ContactUsPage = () => {
             date: '',
             time: '',
           }
-        })
+        }))
       } catch (error) {
 
       }
     } else {
       try {
         const appointment = await createAppointment(apptState.newAppointment);
-
         setApptState({
           appointments: [...apptState.appointments, appointment],
           newAppointment: {
@@ -87,6 +87,19 @@ const ContactUsPage = () => {
     }));
   }
 
+  async function handleDelete(id) {
+    try {
+      const appointments = await deleteAppointment(id);
+      setApptState(prevState => ({
+        ...prevState,
+        appointments,
+      }))
+    } catch (error) {
+
+    }
+  }
+
+
   return (
     <div className="App">
       <div className="content-wrapper">
@@ -105,6 +118,10 @@ const ContactUsPage = () => {
                   className="controls"
                   onClick={() => handleEdit(a._id)}
                 >{'✏️'} </div>
+                <div
+                  className="controls"
+                  onClick={() => handleDelete(a._id)}
+                >{'🗑'} </div>
               </article>
             ))}
             <hr />
