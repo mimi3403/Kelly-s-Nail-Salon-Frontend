@@ -12,6 +12,10 @@
   padding: 20px;
 }
 
+.controls {
+  cursor: pointer;
+}
+
 .form-wrap h1 {
   text-align: center;
 }

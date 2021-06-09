@@ -16,13 +16,13 @@ function createAppointment(data) {
   }).then((res) => res.json());
 }
 
-function updateAppointment({ name, phoneNumber, _id }) {
+function updateAppointment({ name, phoneNumber, date, time, _id }) {
   return fetch(`${BASE_URL}/${_id}`, {
     method: 'PUT',
     headers: {
       'Content-type': 'Application/json'
     },
-    body: JSON.stringify({ name, phoneNumber })
+    body: JSON.stringify({ name, phoneNumber, date, time })
   }).then(res => res.json());
 }
 

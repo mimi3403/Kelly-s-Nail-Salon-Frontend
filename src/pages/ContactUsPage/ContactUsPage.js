@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 import {
   createAppointment,
   fetchAppointment,
-  // updateAppointment,
+  updateAppointment,
   // deleteAppointment,
 } from '../../services/appointment-service'
 
@@ -18,6 +18,7 @@ const ContactUsPage = () => {
       date: '',
       time: '',
     },
+    editMode: false,
   })
 
   useEffect(function () {
@@ -33,20 +34,37 @@ const ContactUsPage = () => {
 
   async function handleSubmit(e) {
     e.preventDefault();
-    try {
-      const appointment = await createAppointment(apptState.newAppointment);
+    if (apptState.editMode) {
+      try {
+        const appointments = await updateAppointment(apptState.newAppointment);
+        setApptState({
+          appointments,
+          editMode: false,
+          newAppointment: {
+            name: '',
+            phoneNumber: '',
+            date: '',
+            time: '',
+          }
+        })
+      } catch (error) {
 
-      setApptState({
-        appointments: [...apptState.appointments, appointment],
-        newAppointment: {
-          name: '',
-          phoneNumber: '',
-          date: '',
-          time: '',
-        },
-      });
-    } catch (error) {
-      console.log(error)
+      }
+    } else {
+      try {
+        const appointment = await createAppointment(apptState.newAppointment);
+
+        setApptState({
+          appointments: [...apptState.appointments, appointment],
+          newAppointment: {
+            name: '',
+            phoneNumber: '',
+            date: '',
+            time: '',
+          },
+        });
+      } catch (error) {
+      }
     }
   }
 
@@ -61,7 +79,12 @@ const ContactUsPage = () => {
   }
 
   function handleEdit(id) {
-    console.log(id)
+    const apptToEdit = apptState.appointments.find(appointment => appointment._id === id);
+    setApptState(prevState => ({
+      ...prevState,
+      newAppointment: apptToEdit,
+      editMode: true,
+    }));
   }
 
   return (
@@ -76,7 +99,7 @@ const ContactUsPage = () => {
               <article key={i}>
                 <div>{a.name}</div>
                 <div>{a.phoneNumber}</div>
-                <div>{a.date}</div>
+                <div>{a.date.substring(0, 10)}</div>
                 <div>{a.time}</div>
                 <div
                   className="controls"
@@ -88,17 +111,17 @@ const ContactUsPage = () => {
             <form onSubmit={handleSubmit}>
               <label>
                 <span>Name</span>
-                <input name="name" value={apptState.name} onChange={handleChange} />
+                <input name="name" value={apptState.newAppointment.name} onChange={handleChange} />
               </label>
               <label>
                 <span>Phone Number</span>
-                <input name="phoneNumber" value={apptState.phoneNumber} onChange={handleChange} />
+                <input name="phoneNumber" value={apptState.newAppointment.phoneNumber} onChange={handleChange} />
                 <span>Date</span>
-                <input name="date" type="date" value={apptState.date} onChange={handleChange} />
+                <input name="date" type="date" value={apptState.newAppointment.date.substring(0, 10)} onChange={handleChange} />
                 <span>Time</span>
-                <input name="time" type="time" value={apptState.time} onChange={handleChange} min="10:00" max="19:00" required />
+                <input name="time" type="time" value={apptState.newAppointment.time} onChange={handleChange} min="10:00" max="19:00" required />
               </label>
-              <button className="btn">Submit</button>
+              <button className="btn">{apptState.editMode ? 'Edit Appointment' : 'Submit'}</button>
             </form>
           </div>
         </div>
