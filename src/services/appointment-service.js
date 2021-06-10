@@ -34,12 +34,3 @@ function deleteAppointment(id) {
 
 export { fetchAppointment, createAppointment, updateAppointment, deleteAppointment };
 
-// const createAppointment = (data) => {
-//   return fetch(`${BASE_URL}/contactus`, data);
-//   console.log('called in service');
-// };
-
-// const apptService = {
-// createAppointment,
-//   fetchAppointment,
-// };
