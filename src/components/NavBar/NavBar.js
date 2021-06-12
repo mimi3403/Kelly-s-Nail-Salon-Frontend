@@ -1,6 +1,6 @@
 import MenuItems from './MenuItems';
-import { login, logout } from '../../services/firebase';
 import './NavBar.css';
+import { login, logout, } from '../../services/firebase';
 
 function NavBar() {
   return (
@@ -16,16 +16,15 @@ function NavBar() {
             </li>
           )
         })}
-        <li>Welcome, User</li>
-        <li>IMG</li>
-        <li
-          className="nav-links"
-          onClick={logout}
-        >Logout</li>
+        {/* <li>Welcome, </li> */}
         <li
           className="nav-links"
           onClick={login}
         >Login</li>
+        <li
+          className="nav-links"
+          onClick={logout}
+        >Logout</li>
       </ul>
     </nav>
   )

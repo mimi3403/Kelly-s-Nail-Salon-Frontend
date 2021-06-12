@@ -16,7 +16,39 @@
   cursor: pointer;
 }
 
-.form-wrap h1 {
+article {
+  display: flex;
+}
+
+article p {
+  margin: 10px
+}
+
+article button {
+  background-color: transparent;
+  border: none;
+  margin: 10px;
+}
+
+form {
+  text-align: left;
+}
+
+span {
+  margin-right: 10px;
+  margin-bottom: 20px;
+}
+
+.time-label {
+  margin-left: 10px
+}
+
+form input {
+  width: 100%;
+  padding: 6px
+}
+
+/* .form-wrap h1 {
   text-align: center;
 }
 
@@ -33,8 +65,8 @@
   padding: 10px;
   border: #333 1px solid;
   border-radius: 5px;
-}
+} */
 
-.form-wrap button {
+.btn {
   background: #FFC3A0
 }

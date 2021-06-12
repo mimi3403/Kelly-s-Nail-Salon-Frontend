@@ -1,5 +1,6 @@
 import './ContactUsPage.css'
 import ContactUs from '../../components/ContactUs/ContactUs';
+import { login, logout, auth } from '../../services/firebase';
 import { useState, useEffect } from "react";
 import {
   createAppointment,
@@ -7,6 +8,7 @@ import {
   updateAppointment,
   deleteAppointment,
 } from '../../services/appointment-service'
+
 
 const ContactUsPage = () => {
 
@@ -19,7 +21,12 @@ const ContactUsPage = () => {
       time: '',
     },
     editMode: false,
+  });
+
+  const [userState, setUserState] = useState({
+    user: null,
   })
+
 
   useEffect(function () {
     async function getAppData() {
@@ -30,6 +37,7 @@ const ContactUsPage = () => {
       }))
     }
     getAppData();
+    auth.onAuthStateChanged(user => setUserState({ user }));
   }, []);
 
   async function handleSubmit(e) {
@@ -110,22 +118,25 @@ const ContactUsPage = () => {
             <hr />
             {apptState.appointments.map((a, i) => (
               <article key={i}>
-                <div>{a.name}</div>
-                <div>{a.phoneNumber}</div>
-                <div>{a.date.substring(0, 10)}</div>
-                <div>{a.time}</div>
-                <div
+                <p>{a.name}</p>
+                <p>{a.phoneNumber}</p>
+                <p>{a.date.substring(0, 10)}</p>
+                <p>{a.time}</p>
+                <button
                   className="controls"
                   onClick={() => handleEdit(a._id)}
-                >{'✏️'} </div>
-                <div
+                >{'✏️'} </button>
+                <button
                   className="controls"
                   onClick={() => handleDelete(a._id)}
-                >{'🗑'} </div>
+                >{'🗑'} </button>
               </article>
             ))}
             <hr />
-            <form onSubmit={handleSubmit}>
+            <li></li>
+            <form
+              user={userState.user}
+              onSubmit={handleSubmit}>
               <label>
                 <span>Name</span>
                 <input name="name" value={apptState.newAppointment.name} onChange={handleChange} />
@@ -133,8 +144,12 @@ const ContactUsPage = () => {
               <label>
                 <span>Phone Number</span>
                 <input name="phoneNumber" value={apptState.newAppointment.phoneNumber} onChange={handleChange} />
+              </label>
+              <label>
                 <span>Date</span>
                 <input name="date" type="date" value={apptState.newAppointment.date.substring(0, 10)} onChange={handleChange} />
+              </label>
+              <label className="time-label">
                 <span>Time</span>
                 <input name="time" type="time" value={apptState.newAppointment.time} onChange={handleChange} min="10:00" max="19:00" required />
               </label>
