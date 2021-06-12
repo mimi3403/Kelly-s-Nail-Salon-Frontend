@@ -14,11 +14,6 @@ const MenuItems = [
     url: '/contactus',
     cName: 'nav-links',
   },
-  // {
-  //   title: 'Log in with Google',
-  //   url: '#',
-  //   cName: 'nav-links',
-  // },
 ]
 
 export default MenuItems;

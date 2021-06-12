@@ -22,9 +22,6 @@ function App() {
               }}
             />
           ))}
-          {/* <Route path='/contactus' render={(props) => <ContactUsPage {...props} />}>
-
-          </Route> */}
         </div>
         <Footer />
       </div>

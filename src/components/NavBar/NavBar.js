@@ -19,10 +19,12 @@ function NavBar(props) {
         {
           props.user ?
             <>
-              <li className="nav-links">Welcome, {props.user.displayName} </li>
+              <li className="nav-links">Welcome, {props.user.displayName}
+              </li>
+
               <li>
                 <img
-                  style={{ height: '2.8rem', borderRadius: '50%' }}
+                  style={{ height: '2.5rem', borderRadius: '50%' }}
                   src={props.user.photoURL}
                   alt={props.user.displayName}
                 />
@@ -40,7 +42,7 @@ function NavBar(props) {
           </li>
         }
       </ul>
-    </nav>
+    </nav >
   )
 }
 

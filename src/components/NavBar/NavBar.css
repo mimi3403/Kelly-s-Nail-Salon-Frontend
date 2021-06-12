@@ -24,3 +24,8 @@ li {
   font-weight: 600;
   cursor: pointer;
 }
+
+.nav-user-links {
+  margin: 10px;
+  padding: 10px;
+}

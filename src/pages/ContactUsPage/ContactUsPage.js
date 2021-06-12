@@ -14,7 +14,7 @@ import {
 const ContactUsPage = () => {
 
   const [apptState, setApptState] = useState({
-    appointments: [{ name: 'mimi', phoneNumber: '123-456-789', date: '06/11/2021', time: '11:00pm' }],
+    appointments: [],
     newAppointment: {
       name: '',
       phoneNumber: '',
@@ -31,21 +31,29 @@ const ContactUsPage = () => {
 
   useEffect(function () {
     async function getAppData() {
-      const appointments = await fetchAppointment();
+      if (!userState.user) return;
+
+      const appointments = await fetchAppointment(userState.user.uid);
+
       setApptState(prevState => ({
         ...prevState,
         appointments,
       }))
     }
     getAppData();
-    auth.onAuthStateChanged(user => setUserState({ user }));
-  }, []);
+    const unsubscribe = auth.onAuthStateChanged(user => setUserState({ user }));
+
+    return function () {
+      unsubscribe();
+    }
+  }, [userState.user]);
 
   async function handleSubmit(e) {
+    if (!userState.user) return;
     e.preventDefault();
     if (apptState.editMode) {
       try {
-        const appointments = await updateAppointment(apptState.newAppointment);
+        const appointments = await updateAppointment(apptState.newAppointment, userState.user.uid);
         setApptState(prevState => ({
           ...prevState,
           appointments,
@@ -62,7 +70,7 @@ const ContactUsPage = () => {
       }
     } else {
       try {
-        const appointment = await createAppointment(apptState.newAppointment);
+        const appointment = await createAppointment(apptState.newAppointment, userState.user.uid);
         setApptState({
           appointments: [...apptState.appointments, appointment],
           newAppointment: {
@@ -88,6 +96,7 @@ const ContactUsPage = () => {
   }
 
   function handleEdit(id) {
+    if (!userState.user) return;
     const apptToEdit = apptState.appointments.find(appointment => appointment._id === id);
     setApptState(prevState => ({
       ...prevState,
@@ -97,8 +106,9 @@ const ContactUsPage = () => {
   }
 
   async function handleDelete(id) {
+    if (!userState.user) return;
     try {
-      const appointments = await deleteAppointment(id);
+      const appointments = await deleteAppointment(id, userState.user.uid);
       setApptState(prevState => ({
         ...prevState,
         appointments,
@@ -118,7 +128,7 @@ const ContactUsPage = () => {
           <div className="form-wrap">
             <h1>Make An Appointment</h1>
             <hr />
-            {apptState.appointments.map((a, i) => (
+            {userState.user ? apptState.appointments.map((a, i) => (
               <article key={i}>
                 <p>{a.name}</p>
                 <p>{a.phoneNumber}</p>
@@ -127,13 +137,15 @@ const ContactUsPage = () => {
                 <button
                   className="controls"
                   onClick={() => handleEdit(a._id)}
-                >{'✏️'} </button>
+                >Edit </button>
                 <button
                   className="controls"
                   onClick={() => handleDelete(a._id)}
-                >{'🗑'} </button>
+                >Delete </button>
               </article>
-            ))}
+            )) :
+              <article>No Appointments Scheduled</article>
+            }
             <hr />
             <li></li>
             <form
@@ -155,7 +167,7 @@ const ContactUsPage = () => {
                 <span>Time</span>
                 <input name="time" type="time" value={apptState.newAppointment.time} onChange={handleChange} min="10:00" max="19:00" required />
               </label>
-              <button className="btn">{apptState.editMode ? 'Edit Appointment' : 'Submit'}</button>
+              <button disabled={!userState.user} className="btn">{apptState.editMode ? 'Edit Appointment' : 'Submit'}</button>
             </form>
           </div>
         </div>

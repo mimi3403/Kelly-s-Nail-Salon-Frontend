@@ -15,5 +15,15 @@
 
 .banner-right {
   width: 50%;
+}
 
+.appt-btn {
+  margin-top: 20px;
+  padding: 5px 10px;
+  border: none;
+  background-color: #FFC3A0;
+}
+
+button:hover {
+  background-color: #fe9d7d;
 }
