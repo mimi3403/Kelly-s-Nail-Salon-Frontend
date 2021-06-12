@@ -2,7 +2,7 @@ import MenuItems from './MenuItems';
 import './NavBar.css';
 import { login, logout, } from '../../services/firebase';
 
-function NavBar() {
+function NavBar(props) {
   return (
     <nav className="NavbarItems">
       <ul>
@@ -16,15 +16,29 @@ function NavBar() {
             </li>
           )
         })}
-        {/* <li>Welcome, </li> */}
-        <li
-          className="nav-links"
-          onClick={login}
-        >Login</li>
-        <li
-          className="nav-links"
-          onClick={logout}
-        >Logout</li>
+        {
+          props.user ?
+            <>
+              <li className="nav-links">Welcome, {props.user.displayName} </li>
+              <li>
+                <img
+                  style={{ height: '2.8rem', borderRadius: '50%' }}
+                  src={props.user.photoURL}
+                  alt={props.user.displayName}
+                />
+              </li>
+              <li
+                className="nav-links"
+                onClick={logout}
+              >Logout</li>
+            </>
+            :
+            <li
+              className="nav-links"
+              onClick={login}
+            >Login
+          </li>
+        }
       </ul>
     </nav>
   )

@@ -1,18 +1,16 @@
 import './App.css';
 import { BrowserRouter as Router } from 'react-router-dom';
-import { useState } from 'react';
-import { Route, Switch } from 'react-router-dom';
+import { Route } from 'react-router-dom';
 import { Routes } from './constants/routes.js';
-import NavBar from './components/NavBar/NavBar';
 import Footer from './components/Footer/Footer';
+import Header from './components/Header/Header'
 
 
 function App() {
   return (
     <Router>
       <div className='App'>
-        <header className='App-header'>Kelly's Nail Salon</header>
-        <NavBar />
+        <Header />
         <div>
           {Routes.map((v) => (
             <Route
@@ -24,6 +22,9 @@ function App() {
               }}
             />
           ))}
+          {/* <Route path='/contactus' render={(props) => <ContactUsPage {...props} />}>
+
+          </Route> */}
         </div>
         <Footer />
       </div>

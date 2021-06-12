@@ -1,6 +1,7 @@
 import './ContactUsPage.css'
 import ContactUs from '../../components/ContactUs/ContactUs';
-import { login, logout, auth } from '../../services/firebase';
+import Navbar from '../../components/NavBar/NavBar';
+import { auth } from '../../services/firebase';
 import { useState, useEffect } from "react";
 import {
   createAppointment,
@@ -110,6 +111,7 @@ const ContactUsPage = () => {
 
   return (
     <div className="App">
+      <Navbar user={userState.user} />
       <div className="content-wrapper">
         <ContactUs />
         <div className="container">
