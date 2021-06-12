@@ -1,5 +1,4 @@
 import './Menu.css';
-import MenuItems from './MenuItems';
 
 const Menu = () => {
 
@@ -9,16 +8,6 @@ const Menu = () => {
         <div className="list-title">
           <h2>WAXING</h2>
         </div>
-        {/* <div className="list-container">
-          {MenuItems.map((pedicure, idx) => {
-            return (
-              <div className="list-content" key={idx}>
-                <h5 className="list-content">{pedicure.service}</h5>
-                <span className="list-content">{pedicure.price}</span>
-              </div>
-            )
-          })}
-        </div> */}
         <div className="list-container">
           <div className="list-content">
             <h5>Eyebrow</h5>
@@ -87,17 +76,6 @@ const Menu = () => {
           <div className="list-title">
             <h2>Pedicure</h2>
           </div>
-
-          {/* <div className="list-container">
-            {MenuItems.map((item, idx) => {
-              return (
-                <div className="list-content">
-                  <h5>{item.service}</h5>
-                  <span>{item.price}</span>
-                </div>
-              )
-            })}
-          </div> */}
           <div>
           </div>
         </div>
