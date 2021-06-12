@@ -7,40 +7,36 @@ const CaroselEle = () => {
   return (
     <Carousel>
       <Carousel.Item>
-        < img className='d-block w-100' src="https://images.pexels.com/photos/3997379/pexels-photo-3997379.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt='First slide' />
+        < img className='d-block w-100' src="https://images.pexels.com/photos/3997384/pexels-photo-3997384.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" alt='First slide' />
         <Carousel.Caption>
           <h3>Kelly's Nails Salon</h3>
           <p>The best place to treat your body to a New Experience!</p >
         </Carousel.Caption>
       </Carousel.Item>
       <Carousel.Item>
-        < img className='d-block w-100' src="https://images.pexels.com/photos/3997359/pexels-photo-3997359.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt='Third slide' />
-
-        <Carousel.Caption>
-
-        </Carousel.Caption>
+        < img className='d-block w-100' src="https://images.pexels.com/photos/3997359/pexels-photo-3997359.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt='Second slide' />
       </Carousel.Item>
-      {/* <Carousel.Item>
-        < img className='d-block w-100' src={Carousel3} alt='Second slide' />
-
-        <Carousel.Caption>
-
-        </Carousel.Caption>
-      </Carousel.Item> */}
-      {/* <Carousel.Item>
-        < img className='d-block w-100' src={Carousel4} alt='Second slide' />
+      <Carousel.Item>
+        < img className='d-block w-100' src="https://images.pexels.com/photos/1029803/pexels-photo-1029803.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" alt='Third slide' />
 
         <Carousel.Caption>
 
         </Carousel.Caption>
       </Carousel.Item>
       <Carousel.Item>
-        < img className='d-block w-100' src={Carousel5} alt='Second slide' />
+        < img className='d-block w-100' src="https://images.pexels.com/photos/7755178/pexels-photo-7755178.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" alt='Fourth slide' />
 
         <Carousel.Caption>
 
         </Carousel.Caption>
-      </Carousel.Item> */}
+      </Carousel.Item>
+      <Carousel.Item>
+        < img className='d-block w-100' src="https://images.pexels.com/photos/3997379/pexels-photo-3997379.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt='Fifth slide' />
+
+        <Carousel.Caption>
+
+        </Carousel.Caption>
+      </Carousel.Item>
     </Carousel>
 
   );

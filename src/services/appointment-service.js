@@ -1,4 +1,4 @@
-const BASE_URL = 'http://localhost:3001/api/contactus';
+const BASE_URL = 'https://kelly-nail-salon-backend.herokuapp.com/api/contactus';
 
 function fetchAppointment(uid) {
   return fetch(`${BASE_URL}?uid=${uid}`).then((res) => res.json());
