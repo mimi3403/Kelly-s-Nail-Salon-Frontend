@@ -8,9 +8,8 @@ const Banner = () => {
     <div className="banner-wrapper">
       <div className="banner-left">
         <div className="banner-content">
-
-          <h2>Celebrate Clean Brighter Days</h2>
-          <h3>New Limited Edition Colors</h3>
+          <h2>Kelly's Nails Salon</h2>
+          <h3>The best place to treat your body to a New Experience!</h3>
           <Link to="/contactus">
             <button className="appt-btn">Make an Appointment</button>
           </Link>
