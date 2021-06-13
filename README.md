@@ -21,7 +21,7 @@ Welcome to Kelly's Nail Salon! 💅🏻
 ![contactuspage]()
 
 ## Getting Started
-[Click here](#) to get started
+[Click here](https://kelly-nail-salon.netlify.app) to get started
 
 ## Future Enhancements
 TBD

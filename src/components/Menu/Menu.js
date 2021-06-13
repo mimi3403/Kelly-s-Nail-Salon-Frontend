@@ -44,7 +44,7 @@ const Menu = () => {
         <div>
           <div className="list-container">
             <div className="list-content">
-              <h5>Polist Change</h5>
+              <h5>Polish Change</h5>
             </div>
             <span>$10</span>
           </div>
@@ -72,9 +72,74 @@ const Menu = () => {
             </div>
             <span>$33</span>
           </div>
-
           <div className="list-title">
             <h2>Pedicure</h2>
+          </div>
+          <div className="list-container">
+            <div className="list-content">
+              <h5>Regular Pedicure</h5>
+            </div>
+            <span>$25</span>
+          </div>
+          <div className="list-container">
+            <div className="list-content">
+              <h5>Aqua Flower Pedicure</h5>
+            </div>
+            <span>$30</span>
+          </div>
+          <div className="list-container">
+            <div className="list-content">
+              <h5>Manicure + Pedicure</h5>
+            </div>
+            <span>$32</span>
+          </div>
+          <div className="list-container">
+            <div className="list-content">
+              <h5>French Color Gel Pedicure</h5>
+            </div>
+            <span>$35</span>
+          </div>
+          <div className="list-container">
+            <div className="list-content">
+              <h5>Aromatic Spa</h5>
+            </div>
+            <span>$36</span>
+          </div>
+          <div className="list-container">
+            <div className="list-content">
+              <h5>Aromatic Spa</h5>
+            </div>
+            <span>$38</span>
+          </div>
+          <div className="list-container">
+            <div className="list-content">
+              <h5>Green Tea Spa</h5>
+            </div>
+            <span>$40</span>
+          </div>
+          <div className="list-container">
+            <div className="list-content">
+              <h5>Lemon Tree Spa</h5>
+            </div>
+            <span>$45</span>
+          </div>
+          <div className="list-container">
+            <div className="list-content">
+              <h5>Olive Oil Garden Spa</h5>
+            </div>
+            <span>$45</span>
+          </div>
+          <div className="list-container">
+            <div className="list-content">
+              <h5>Callus Spa</h5>
+            </div>
+            <span>$45</span>
+          </div>
+          <div className="list-container">
+            <div className="list-content">
+              <h5>Luxury Spa</h5>
+            </div>
+            <span>$60</span>
           </div>
           <div>
           </div>
