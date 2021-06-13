@@ -1,6 +1,7 @@
 import MenuItems from './MenuItems';
 import './NavBar.css';
 import { login, logout, } from '../../services/firebase';
+import { Link } from 'react-router-dom';
 
 function NavBar(props) {
   return (
@@ -10,9 +11,11 @@ function NavBar(props) {
           return (
 
             <li key={index}>
-              <a className={item.cName} href={item.url}>
-                {item.title}
-              </a>
+              <Link to={item.url}>
+                <a className={item.cName} href={item.url}>
+                  {item.title}
+                </a>
+              </Link>
             </li>
           )
         })}
